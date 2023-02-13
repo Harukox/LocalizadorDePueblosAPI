@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="script.js"></script>
+  <title>Pueblos</title>
+</head>
+
+<body>
+  <div class="general">
+    <div class="poblacion">
+
+      <h1 class="titulo">Buscador de pueblos </h1>
+
+
+      <label class="label">Población</label>
+      <input type="text" id="busqueda" onchange="sugerencias()">
+
+      <ul id="listaSugerencia" class="lista">
+      </ul>
+
+      <p>
+        <button onclick="buscarPueblo()" type="submit">Buscar</button>
+      </p>
+
+    </div>
+    <div id="resultado">
+      <div>
+        <p>
+          Provincia: <span id="provincia"></span>
+        </p>
+        <p>
+          Población: <span id="poblacion"></span>
+        </p>
+      </div>
+      <div id="map"></div>
+
+     
+      <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+        defer
+      ></script>
+
+    </div>
+  </div>
+
+</body>
+
+</html>
