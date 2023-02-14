@@ -4,41 +4,34 @@ let indice;
 
 function sugerencias() {
 
-  var busqueda = document.getElementById("busqueda").value;
+  var busqueda = $("#busqueda").val();
 
   //llamar API.
 
   //Codigo generado por la página https://rapidapi.com/wirefreethought/api/geodb-cities/
-
-  const data = null;
-
-  const xhttp = new XMLHttpRequest();
-  xhttp.withCredentials = true;
-
-  // listener para ejecutar codigo cuando se completa la llamada a la API
-  xhttp.addEventListener("readystatechange", function () {
-    if (this.readyState === 4 && this.status === 200) {
-      //procesar la respuesta de la API
-
-      // el resultado esta en la propiedad "responseText"
-      var resultadoJSON = JSON.parse(xhttp.responseText);
-      procesarResultado(resultadoJSON);
+  const settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://wft-geo-db.p.rapidapi.com/v1/geo/cities?countryIds=ES&namePrefix=" + busqueda ,
+    "method": "GET",
+    "headers": {
+      "X-RapidAPI-Key": "fb87d7a3b9mshdc50827050564a7p168cfbjsne0473be5d1d7",
+      "X-RapidAPI-Host": "wft-geo-db.p.rapidapi.com"
     }
+  };
+  
+  $.ajax(settings).done(function (response) {
+    // el resultado esta en "response" y ya en formato JSON
+    procesarResultado(response);
   });
-
-  xhttp.open("GET", "https://wft-geo-db.p.rapidapi.com/v1/geo/cities?countryIds=ES&namePrefix=" + busqueda);
-  xhttp.setRequestHeader("X-RapidAPI-Key", "fb87d7a3b9mshdc50827050564a7p168cfbjsne0473be5d1d7");
-  xhttp.setRequestHeader("X-RapidAPI-Host", "wft-geo-db.p.rapidapi.com");
-
-  xhttp.send(data);
-
+  
 }
 function procesarResultado(resultadoJSON) {
   // variable para el contenido html de la lista de sugerenecias (ul)
   let lihtml = ""
 
-  const listaSugerencias = document.getElementById("listaSugerencia");
-  listaSugerencias.style.display="block";
+  const listaSugerencias = $("#listaSugerencia");
+  listaSugerencias.css("display","block");
 
   // en en campo data del JSON estan los datos de la lista
   datosResultado = resultadoJSON["data"];
@@ -52,7 +45,7 @@ function procesarResultado(resultadoJSON) {
   }
 
   // insertar el html de la lista
-  listaSugerencias.innerHTML = lihtml;
+  listaSugerencias.html(lihtml);
 }
 
 function opcionLista(opcion) {
@@ -62,8 +55,8 @@ function opcionLista(opcion) {
   const dato = datosResultado[indice];
 
   // relleneamos la caja de busqueda con el nombre del pueblo y ocultamos la lista de sugerencias
-  document.getElementById("busqueda").value = dato["name"];
-  document.getElementById("listaSugerencia").style.display = "none";
+  $("#busqueda").val(dato["name"]);
+  $("#listaSugerencia").css("display", "none");
 }
 
 let map;
@@ -77,16 +70,16 @@ function buscarPueblo() {
   const provincia = dato["region"];
   const poblacion = dato["population"];
 
-  document.getElementById("provincia").innerHTML=provincia;
-  document.getElementById("poblacion").innerHTML=poblacion;
+  $("#provincia").html(provincia);
+  $("#poblacion").html(poblacion);
 
   initMap(latitud, longitud);
 
-  document.getElementById("resultado").style.display = "block";
+  $("#resultado").css("display", "block");
 }
 
 function initMap(latitud, longitud) {
-  map = new google.maps.Map(document.getElementById("map"), {
+  map = new google.maps.Map($("#map")[0], {
     center: { lat: latitud, lng: longitud },
     zoom: 9,
   });

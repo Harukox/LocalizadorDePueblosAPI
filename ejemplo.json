@@ -1,0 +1,92 @@
+{
+    "data": [
+      {
+        "id": 28708,
+        "wikiDataId": "Q399702",
+        "type": "CITY",
+        "city": "Agüimes, Las Palmas",
+        "name": "Agüimes, Las Palmas",
+        "country": "Spain",
+        "countryCode": "ES",
+        "region": "Canary Islands",
+        "regionCode": "CN",
+        "latitude": 27.89145,
+        "longitude": -15.44071,
+        "population": 32067
+      },
+      {
+        "id": 27998,
+        "wikiDataId": "Q706892",
+        "type": "CITY",
+        "city": "Artenara, Las Palmas",
+        "name": "Artenara, Las Palmas",
+        "country": "Spain",
+        "countryCode": "ES",
+        "region": "Canary Islands",
+        "regionCode": "CN",
+        "latitude": 28.0202175,
+        "longitude": -15.6457328,
+        "population": 1030
+      },
+      {
+        "id": 3477966,
+        "wikiDataId": "Q110689061",
+        "type": "CITY",
+        "city": "Cuesta de la Palma",
+        "name": "Cuesta de la Palma",
+        "country": "Spain",
+        "countryCode": "ES",
+        "region": "Andalusia",
+        "regionCode": "AN",
+        "latitude": 37.13678,
+        "longitude": -4.27849,
+        "population": 0
+      },
+      {
+        "id": 3181015,
+        "wikiDataId": "Q1011422",
+        "type": "CITY",
+        "city": "El Palmar de Troya",
+        "name": "El Palmar de Troya",
+        "country": "Spain",
+        "countryCode": "ES",
+        "region": "Andalusia",
+        "regionCode": "AN",
+        "latitude": 37.063280555,
+        "longitude": -5.806319444,
+        "population": 2343
+      },
+      {
+        "id": 28560,
+        "wikiDataId": "Q606753",
+        "type": "CITY",
+        "city": "Firgas, Las Palmas",
+        "name": "Firgas, Las Palmas",
+        "country": "Spain",
+        "countryCode": "ES",
+        "region": "Canary Islands",
+        "regionCode": "CN",
+        "latitude": 28.10865,
+        "longitude": -15.55731,
+        "population": 7581
+      }
+    ],
+    "links": [
+      {
+        "rel": "first",
+        "href": "/v1/geo/cities?offset=0&limit=5&countryIds=ES&namePrefix=palma"
+      },
+      {
+        "rel": "next",
+        "href": "/v1/geo/cities?offset=5&limit=5&countryIds=ES&namePrefix=palma"
+      },
+      {
+        "rel": "last",
+        "href": "/v1/geo/cities?offset=20&limit=5&countryIds=ES&namePrefix=palma"
+      }
+    ],
+    "metadata": {
+      "currentOffset": 0,
+      "totalCount": 25
+    }
+  }
