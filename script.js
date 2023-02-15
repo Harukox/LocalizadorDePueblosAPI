@@ -33,6 +33,7 @@ function sugerencias() {
   xhttp.send(data);
 
 }
+
 function procesarResultado(resultadoJSON) {
   // variable para el contenido html de la lista de sugerenecias (ul)
   let lihtml = ""
@@ -47,7 +48,7 @@ function procesarResultado(resultadoJSON) {
   for (let i = 0; i < datosResultado.length; i++) {
     const dato = datosResultado[i];
 
-    // para diferenciar el elemento de listas que se pulsa, al onlick le pasamos el indice (i) como parametro
+    // para diferenciar el elemento de listas que se pulsa, al onclick le pasamos el indice (i) como parametro
     lihtml = lihtml + "<li onclick='opcionLista(" + i + ")'>" + dato["name"] + "</li>"
   }
 
@@ -58,7 +59,7 @@ function procesarResultado(resultadoJSON) {
 function opcionLista(opcion) {
   indice = opcion;
 
-  // obtenenmos la opcion de la lista que ha seleccion el usuario haciendo clic
+  // obtenenmos la opcion de la lista que ha seleccion el usuario haciendo click
   const dato = datosResultado[indice];
 
   // relleneamos la caja de busqueda con el nombre del pueblo y ocultamos la lista de sugerencias
