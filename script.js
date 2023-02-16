@@ -26,7 +26,7 @@ function sugerencias() {
     }
   });
 
-  xhttp.open("GET", "https://wft-geo-db.p.rapidapi.com/v1/geo/cities?countryIds=ES&namePrefix=" + busqueda);
+  xhttp.open("GET", "https://wft-geo-db.p.rapidapi.com/v1/geo/cities?languageCode=es&countryIds=ES&namePrefix=" + busqueda);
   xhttp.setRequestHeader("X-RapidAPI-Key", "fb87d7a3b9mshdc50827050564a7p168cfbjsne0473be5d1d7");
   xhttp.setRequestHeader("X-RapidAPI-Host", "wft-geo-db.p.rapidapi.com");
 
@@ -89,7 +89,7 @@ function buscarPueblo() {
 function initMap(latitud, longitud) {
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: latitud, lng: longitud },
-    zoom: 9,
+    zoom: 10,
   });
 }
 
